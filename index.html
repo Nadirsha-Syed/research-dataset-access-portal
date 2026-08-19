@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>SR University Research Dataset Access Repository</title>
+  <meta name="description" content="Browse, search, and request access to university-grade research datasets at SR University (SRU). Find neuroimaging, genomics, climate data, and more.">
+  <meta name="keywords" content="SR University, research datasets, dataset repository, data access, academic research, open data, controlled access">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#home" class="logo-link" id="logoLink" aria-label="SR University Dataset Repository Home">
+        <img src="logo.png" alt="SR University Research Data Repository Logo" class="logo-img">
+      </a>
+      
+      <!-- Hamburger Menu Toggle (Mobile) -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <!-- Nav Links -->
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link active" data-tab="home" id="navHome">Home</a></li>
+          <li><a href="#datasets" class="nav-link" data-tab="datasets" id="navDatasets">Datasets</a></li>
+          <li><a href="#access-request" class="nav-link" data-tab="access-request" id="navAccess">Access Data</a></li>
+          <li><a href="#about" class="nav-link" data-tab="about" id="navAbout">About</a></li>
+          <li><a href="#contact" class="nav-link" data-tab="contact" id="navContact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="heroSection">
+    <div class="container hero-content">
+      <h1 class="hero-title">Research Dataset Repository</h1>
+      <p class="hero-description">
+        SR University is committed to fostering academic discovery. We offer student and researcher access to curated, high-impact datasets across scientific domains. Browse our catalogue and request secure access for academic research purposes.
+      </p>
+      <div class="hero-actions">
+        <a href="#datasets" class="btn btn-primary" id="heroBrowseBtn">Browse Datasets</a>
+        <a href="#access-request" class="btn btn-secondary" id="heroRequestBtn">Request Data Access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Stats Banner -->
+  <div class="container stats-banner" id="statsBanner">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Core Datasets</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">12.4 TB</div>
+        <div class="stat-label">Total Data Size</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">340+</div>
+        <div class="stat-label">Approved Researchers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">12,500+</div>
+        <div class="stat-label">Data Downloads</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Wrapper -->
+  <main class="container">
+    
+    <!-- Home Tab View -->
+    <section id="home" class="tab-section active">
+      <div class="home-intro">
+        <div class="home-intro-content">
+          <h3>Secure, Compliant Data Access</h3>
+          <p>
+            The SR University Research Dataset Repository provides controlled access to specialized scientific datasets. By offering a standardized framework for data curation, storage, and request management, we ensure ethical data usage while empowering researchers to drive breakthroughs.
+          </p>
+          <p>
+            Whether you are working on machine learning algorithms in neuroimaging, exploring localized climate patterns, or analyzing genetic traits, our platform provides comprehensive metadata catalogs, file manifest checks, and a streamlined request workflow.
+          </p>
+          <a href="#about" class="btn btn-outline" style="margin-top: 10px;">Learn More About Governance</a>
+        </div>
+        <div class="home-intro-image">
+          <svg class="illustration" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+            <!-- Background grid -->
+            <rect width="400" height="300" rx="12" fill="#FFFFFF" />
+            <path d="M 50 0 L 50 300 M 100 0 L 100 300 M 150 0 L 150 300 M 200 0 L 200 300 M 250 0 L 250 300 M 300 0 L 300 300 M 350 0 L 350 300" stroke="#f1f5f9" stroke-width="1" />
+            <path d="M 0 50 L 400 50 M 0 100 L 400 100 M 0 150 L 400 150 M 0 200 L 400 200 M 0 250 L 400 250" stroke="#f1f5f9" stroke-width="1" />
+            
+            <!-- Dynamic abstract network representing data flow -->
+            <circle cx="100" cy="150" r="30" fill="#23468A" fill-opacity="0.1" />
+            <circle cx="100" cy="150" r="10" fill="#23468A" />
+            
+            <circle cx="200" cy="80" r="25" fill="#D4AF37" fill-opacity="0.1" />
+            <circle cx="200" cy="80" r="8" fill="#D4AF37" />
+            
+            <circle cx="200" cy="220" r="25" fill="#D4AF37" fill-opacity="0.1" />
+            <circle cx="200" cy="220" r="8" fill="#D4AF37" />
+            
+            <circle cx="300" cy="150" r="40" fill="#23468A" fill-opacity="0.1" />
+            <circle cx="300" cy="150" r="15" fill="#23468A" />
+            
+            <!-- Connection lines -->
+            <path d="M 100 150 L 200 80 M 100 150 L 200 220 M 200 80 L 300 150 M 220 180 L 200 220 M 200 220 L 300 150" stroke="#23468A" stroke-width="2" stroke-dasharray="4 4" opacity="0.6" />
+            
+            <!-- Glowing accent spots -->
+            <circle cx="150" cy="115" r="4" fill="#D4AF37" />
+            <circle cx="250" cy="115" r="4" fill="#23468A" />
+            <circle cx="250" cy="185" r="4" fill="#D4AF37" />
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Core Pillars -->
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Ethical Compliance</h4>
+          <p>All datasets undergo Institutional Review Board (IRB) review. Data use agreements guarantee privacy and compliance with national guidelines.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h4>Structured Formats</h4>
+          <p>Data is organized in standard schemas (e.g. BIDS for MRI, NetCDF for climate) with full manifest files for complete integrity validation.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4>Streamlined Access</h4>
+          <p>Our centralized application process connects requests directly with principal investigators, reducing processing times to 3–5 business days.</p>
+        </div>
+      </div>
+      
+      <!-- CTA Banner -->
+      <div class="cta-banner">
+        <h3>Ready to start your research?</h3>
+        <p>Explore our catalog of restricted and open-access scientific datasets today. Registration and data requests are free for qualified academic researchers.</p>
+        <a href="#datasets" class="btn btn-primary" id="ctaBrowseBtn">Browse Catalog</a>
+      </div>
+    </section>
+
+    <!-- Datasets Grid View -->
+    <section id="datasets" class="tab-section">
+      <div class="section-header">
+        <h2 class="section-title">Academic & Scientific Datasets</h2>
+        <p class="section-subtitle">Use filters to search through our specialized biomedical, engineering, and environmental repositories.</p>
+      </div>
+      
+      <!-- Search & Filters -->
+      <div class="search-filter-bar">
+        <div class="search-input-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input type="text" id="datasetSearch" class="search-input" placeholder="Search datasets by name, keyword, type...">
+        </div>
+        
+        <div class="filters-wrapper">
+          <div class="filter-categories" id="filterCategories">
+            <button class="filter-btn active" data-category="all">All Fields</button>
+            <button class="filter-btn" data-category="Biomedical">Biomedical</button>
+            <button class="filter-btn" data-category="Environmental">Environmental</button>
+            <button class="filter-btn" data-category="Social Sciences">Social Sciences</button>
+            <button class="filter-btn" data-category="Engineering">Engineering</button>
+          </div>
+          
+          <div class="sort-select-wrapper">
+            <label for="datasetSort" class="sort-label">Sort by:</label>
+            <select id="datasetSort" class="sort-select">
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="size-desc">Size (Large to Small)</option>
+              <option value="size-asc">Size (Small to Large)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Datasets Cards Grid -->
+      <div class="datasets-grid" id="datasetsGrid">
+        <!-- Rendered Dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- Dataset Details View -->
+    <section id="dataset-detail" class="tab-section">
+      <div class="back-btn-wrapper">
+        <a href="#datasets" class="back-btn" id="detailBackBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to Dataset List
+        </a>
+      </div>
+      
+      <div class="detail-layout" id="detailLayout">
+        <!-- Rendered Dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- Request Access Form Tab -->
+    <section id="access-request" class="tab-section">
+      <div class="section-header">
+        <h2 class="section-title">Data Access Request Form</h2>
+        <p class="section-subtitle">Please fill out this compliance form. Your application will be reviewed by the SRU Data Governance Board within 3-5 working days.</p>
+      </div>
+      
+      <div class="form-layout">
+        <form id="accessRequestForm" novalidate>
+          <div class="form-grid">
+            <!-- Full Name -->
+            <div>
+              <label for="formFullName" class="form-label">Full Name *</label>
+              <input type="text" id="formFullName" class="form-control" placeholder="Dr. Jane Doe" required>
+            </div>
+            
+            <!-- Email -->
+            <div>
+              <label for="formEmail" class="form-label">Institutional Email *</label>
+              <input type="email" id="formEmail" class="form-control" placeholder="j.doe@university.edu" required>
+            </div>
+            
+            <!-- Institution / Department -->
+            <div class="form-group-full">
+              <label for="formInstitution" class="form-label">Institution & Department *</label>
+              <input type="text" id="formInstitution" class="form-control" placeholder="SR University, Department of Computer Science" required>
+            </div>
+            
+            <!-- Dataset Requested -->
+            <div class="form-group-full">
+              <label for="formDatasetRequested" class="form-label">Requested Dataset *</label>
+              <select id="formDatasetRequested" class="form-control" required>
+                <option value="" disabled selected>-- Select a Dataset --</option>
+                <!-- Rendered Dynamically from app.js dataset list -->
+              </select>
+            </div>
+            
+            <!-- Research Purpose -->
+            <div class="form-group-full">
+              <label for="formPurpose" class="form-label">Primary Research Domain / Purpose *</label>
+              <input type="text" id="formPurpose" class="form-control" placeholder="e.g. Cognitive Neurology Study, Climate Modeling" required>
+            </div>
+            
+            <!-- Description of Intended Use -->
+            <div class="form-group-full">
+              <label for="formIntendedUse" class="form-label">Detailed Intended Use & Methodology *</label>
+              <textarea id="formIntendedUse" class="form-control" placeholder="Describe how the dataset will be utilized in your research, including specific algorithms, modeling methods, and security/storage measures to be implemented." required></textarea>
+            </div>
+          </div>
+          
+          <!-- Agreements -->
+          <div class="checkbox-group">
+            <input type="checkbox" id="formAgreement" class="checkbox-control" required>
+            <label for="formAgreement" class="checkbox-label">
+              I agree to the <strong>SR University Data Use Agreement (DUA)</strong>. I certify that this dataset will be stored on secure institutional servers, will not be distributed to unauthorized third parties, and will be cited properly in all resulting publications.
+            </label>
+          </div>
+          
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary btn-full" id="submitRequestBtn">
+            Submit Access Request
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- About Page Tab -->
+    <section id="about" class="tab-section">
+      <div class="section-header">
+        <h2 class="section-title">About the Repository</h2>
+        <p class="section-subtitle">Dedicated to sharing open and controlled research data to support scientific collaboration.</p>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-content">
+          <h3>Our Mission</h3>
+          <p>
+            The SR University Research Dataset Repository (SRU-RDR) serves as a central hub for researchers and students globally to query datasets generated by SRU laboratories, affiliates, and academic partners. We provide secure infrastructure to host large-scale scientific datasets across biomedicine, atmospheric science, social sciences, and engineering.
+          </p>
+          
+          <h3>Data Governance & Safety</h3>
+          <p>
+            Sharing academic data requires careful consideration of participant privacy, commercial confidentiality, and intellectual property. The repository categorizes datasets into three security levels:
+          </p>
+          <ul>
+            <li><strong>Open Access:</strong> Freely downloadable datasets representing anonymized aggregates, simulated trials, or public domain facts.</li>
+            <li><strong>Restricted Access:</strong> Datasets requiring researcher validation, institutional email authentication, and standard citations agreements.</li>
+            <li><strong>Controlled Access:</strong> Highly sensitive datasets containing detailed clinical records, genetics, or location logs. Access requires a detailed IRB approval, a signed Data Use Agreement (DUA), and secure computing environments.</li>
+          </ul>
+          
+          <h3>Citation Guidelines</h3>
+          <p>
+            When utilizing datasets hosted at SRU, publications must acknowledge the researchers who generated the dataset and include the unique digital object identifier (DOI) associated with it. A standard format is available on each dataset's detail page.
+          </p>
+        </div>
+        
+        <aside class="about-sidebar-card">
+          <h4>Policy Oversight</h4>
+          <p>
+            All dataset requests are audited by the <strong>SRU Institutional Data Review Board (IDRB)</strong> to ensure compliance with human subject protection, HIPAA regulations, and collaborative data covenants.
+          </p>
+          <p>
+            For questions regarding compliance or to host your own dataset on our platform, please read our hosting documentation or reach out directly to the compliance department.
+          </p>
+          <a href="#contact" class="btn btn-primary btn-full">Contact Board</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contact Page Tab -->
+    <section id="contact" class="tab-section">
+      <div class="section-header">
+        <h2 class="section-title">Contact Support & Administration</h2>
+        <p class="section-subtitle">Have questions about dataset hosting, compliance requirements, or request status? Get in touch with our team.</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <!-- Card 1 -->
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-card-content">
+              <h4>Dataset Support Desk</h4>
+              <p>For questions regarding dataset file systems, corrupted manifests, or format conversions.</p>
+              <p style="margin-top: 8px; font-weight: 600; color: var(--primary-color);">data-support@sr.university</p>
+            </div>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="contact-card-content">
+              <h4>Compliance & DUA Board</h4>
+              <p>For inquiries regarding IRB regulations, Data Use Agreements, or pending request audits.</p>
+              <p style="margin-top: 8px; font-weight: 600; color: var(--primary-color);">dua-compliance@sr.university</p>
+            </div>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-card-content">
+              <h4>Mailing & Office Address</h4>
+              <p>SR University, Data Science & Innovation Complex, Tower A, Room 410.</p>
+              <p style="margin-top: 8px; font-weight: 600; color: var(--primary-color);">100 Innovation Way, Tech City</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Styled Map Placeholder -->
+        <div class="contact-map-placeholder">
+          <!-- Abstract SVG representation of a city map grid -->
+          <svg class="map-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+            <rect width="400" height="400" fill="#E5E7EB" />
+            <path d="M 0 50 L 400 50 M 0 120 L 400 120 M 0 210 L 400 210 M 0 310 L 400 310" stroke="#FFFFFF" stroke-width="8" />
+            <path d="M 0 80 L 400 350" stroke="#FFFFFF" stroke-width="12" />
+            <path d="M 80 0 L 80 400 M 170 0 L 170 400 M 270 0 L 270 400 M 340 0 L 340 400" stroke="#FFFFFF" stroke-width="8" />
+            <path d="M 50 0 L 320 400" stroke="#FFFFFF" stroke-width="10" />
+            <path d="M 120 180 C 180 200 240 210 270 280" stroke="#23468A" stroke-width="4" stroke-opacity="0.2" fill="none" />
+            <!-- Waterbody representation -->
+            <path d="M 0 350 Q 100 320 200 360 T 400 350 L 400 400 L 0 400 Z" fill="#93C5FD" fill-opacity="0.4" />
+          </svg>
+          
+          <div class="map-marker">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="map-label">SRU Data Science Tower</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Request Confirmation Modal -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content">
+      <div class="success-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3 class="success-title">Access Request Received</h3>
+      <p class="success-text">
+        Thank you for submitting your data request. The SRU Data Governance Board will audit your research proposal. An verification receipt has been sent to your institutional email.
+      </p>
+      <div>
+        <span class="stat-label">Your Reference Ticket</span>
+      </div>
+      <div class="ticket-number" id="ticketNumber">SRU-REQ-847291</div>
+      <button class="btn btn-primary btn-full" id="closeModalBtn">Close Window</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="logo.png" alt="SR University Research Data Repository Logo" class="footer-logo">
+        <p class="footer-desc">
+          SR University's secure portal for providing compliant, high-quality research datasets to global students, researchers, and scientific partners.
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#datasets">Browse Datasets</a></li>
+          <li><a href="#access-request">Request Access</a></li>
+          <li><a href="#about">About Governance</a></li>
+          <li><a href="#contact">Contact Support</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="footer-title">Contact Office</h4>
+        <ul class="footer-contact-info">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>SRU Institutional Data Review Board (IDRB)</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>dua-compliance@sr.university</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+1 (555) 019-3829</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <div class="footer-copy">
+        &copy; 2026 SR University. All rights reserved. Managed by SRU Office of Research Compliance.
+      </div>
+      <ul class="footer-legal-links">
+        <li><a href="#about">Data Policy</a></li>
+        <li><a href="#about">Terms of Use</a></li>
+        <li><a href="#about">Privacy Center</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
