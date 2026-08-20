@@ -111,71 +111,12 @@ const datasets = [
       "Anonymization": "Faces, license plates, and raw video omitted; vectors only",
       "Sample Rate": "LiDAR at 10Hz, Camera object detections at 30fps"
     }
-  },
-  {
-    id: "sru-econ-05",
-    name: "SRU-ECON: Global Supply Chain Disruptions Index",
-    shortDesc: "A composite panel dataset of port delays, container freight rates, and manufacturing wait times from 2018 to 2026.",
-    fullDesc: "The SRU-ECON Global Supply Chain Disruptions Index contains econometric models tracking macroeconomic indicators across major trade routes. Compiled by the SRU Department of Economics, the index aggregates daily container transit logs, port turn-around durations for 50 major hubs, Baltic Dry Index shifts, and regional Purchasing Managers' Index (PMI) delay variables to build a comprehensive panel dataset tracking economic friction.",
-    category: "Social Sciences",
-    type: "Macroeconomic Panel",
-    size: 12880000000, // 12 GB
-    sizeStr: "12 GB",
-    accessType: "Open",
-    published: "June 05, 2026",
-    pi: "Dr. Linda Zhao, Center for Global Trade and Development",
-    irbId: "Exempt (Economic Aggregates)",
-    citation: "Zhao, L. (2026). SRU Global Supply Chain Disruptions Index: Panel Data on Maritime Friction and Macroeconomic Shock Transmission. SRU Economic Review. DOI: 10.1234/sru.econ.2026.05",
-    files: [
-      { name: "sru_econ_supply_chain_index_2018_2026.csv", size: "1.2 GB", format: "CSV" },
-      { name: "sru_econ_port_delays_time_series.csv", size: "8.5 GB", format: "CSV" },
-      { name: "sru_econ_freight_rates_panel.xlsx", size: "2.1 GB", format: "Excel (.xlsx)" },
-      { name: "methodology_weighting_framework.pdf", size: "18 MB", format: "PDF" }
-    ],
-    metadata: {
-      "Frequency": "Daily, weekly, and monthly aggregates",
-      "Geographic Coverage": "Global (50 key ports, 18 maritime shipping channels)",
-      "Time Span": "January 1, 2018 - May 31, 2026",
-      "Firms Sampled": "Aggregate indexes represent 1,200+ freight forwarders",
-      "Statistical Models": "Vector Autoregressions (VAR) weights applied"
-    }
-  },
-  {
-    id: "sru-eeg-06",
-    name: "SRU-EEG: High-Density Sleep Registry",
-    shortDesc: "64-channel sleep EEG recordings from 80 healthy and sleep-deprived subjects undergoing restorative cycles.",
-    fullDesc: "The SRU-EEG sleep study provides physiological waveforms capturing sleep architecture. The dataset consists of full overnight polysomnography (PSG) captures featuring 64-channel electroencephalogram (EEG), EOG, EMG, and ECG signals. Participants completed two cycles: a normal 8-hour sleep baseline and a sleep-deprived cycle followed by daytime recovery. Ideal for researchers analyzing spindle/slow-wave dynamics, epilepsy markers, and neural restorative patterns.",
-    category: "Biomedical",
-    type: "EEG Waveforms",
-    size: 2254800000000, // 2.1 TB
-    sizeStr: "2.1 TB",
-    accessType: "Restricted",
-    published: "October 14, 2025",
-    pi: "Dr. Raymond Vance, Sleep and Chronobiology Laboratory",
-    irbId: "IRB-2024-EEG89",
-    citation: "Vance, R. & Sleep Lab. (2025). SRU Sleep Registry: 64-Channel Polysomnography of Baseline and Post-Deprivation Recovery Cycles. Sleep Research Archive. DOI: 10.1234/sru.eeg.2025.06",
-    files: [
-      { name: "sru_eeg_raw_edf_signals.tar", size: "1.9 TB", format: "EDF (.edf)" },
-      { name: "sru_eeg_visual_sleep_scores.csv", size: "240 MB", format: "CSV" },
-      { name: "sru_eeg_demographics_actigraphy.xlsx", size: "15 MB", format: "Excel (.xlsx)" },
-      { name: "sru_eeg_polysomnography_protocol.pdf", size: "4.5 MB", format: "PDF" }
-    ],
-    metadata: {
-      "Signal Standard": "European Data Format (EDF)",
-      "Sampling Rate": "500Hz sampling with 0.1-100Hz filter band",
-      "Participants": "80 Healthy Adults (Ages 18-45, balanced gender)",
-      "Electrodes": "64 EEG scalp channels placed according to 10-20 system",
-      "Staging Guidelines": "Scored in 30-second epochs by certified polysomnographers"
-    }
   }
 ];
 
-// Client-side router based on window hash
 function router() {
   const hash = window.location.hash || "#home";
   
-  // Extract route and parameters
-  // E.g. #dataset-detail?id=sru-mind-01 -> route: 'dataset-detail', params: { id: 'sru-mind-01' }
   const parts = hash.split("?");
   const route = parts[0];
   const params = {};
@@ -333,7 +274,7 @@ function filterAndSortDatasets() {
     if (data.accessType === "Controlled") badgeClass = "badge-controlled";
 
     return `
-      <div class="dataset-card">
+      <div class="dataset-card" onclick="window.location.hash='#dataset-detail?id=${data.id}'" style="cursor: pointer;">
         <div class="dataset-card-header">
           <div class="dataset-badge-row">
             <span class="badge ${badgeClass}">${data.accessType}</span>
@@ -358,7 +299,7 @@ function filterAndSortDatasets() {
             </div>
           </div>
         </div>
-        <div class="dataset-card-footer">
+        <div class="dataset-card-footer" onclick="event.stopPropagation();">
           <a href="#dataset-detail?id=${data.id}" class="btn btn-outline btn-sm btn-full">View Dataset Details</a>
         </div>
       </div>
@@ -466,11 +407,77 @@ function renderDatasetDetail(id) {
     `;
   } else {
     actionButtonHTML = `
-      <a href="#access-request?dataset=${dataset.id}" class="btn btn-primary btn-full">
-        Request Secure Access
-      </a>
+      <button class="btn btn-primary btn-full" onclick="document.getElementById('detailFormSection').scrollIntoView({behavior: 'smooth'})">
+        Fill Access Request
+      </button>
     `;
   }
+
+  let formHTML = "";
+  if (dataset.accessType === "Open") {
+    formHTML = `
+      <div class="detail-form-container" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border-color);">
+        <h3 class="detail-sec-title">Download Open Access Dataset</h3>
+        <p class="detail-desc">This is an open-access dataset. You can download the complete files directly above, or fill out the form below if your institution requires a formal access record.</p>
+      </div>
+    `;
+  }
+
+  formHTML += `
+    <div class="detail-form-container" id="detailFormSection" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border-color);">
+      <h3 class="detail-sec-title">Data Access Request Form</h3>
+      <p class="detail-desc" style="margin-bottom: 20px;">Please fill out this compliance form to request access to the <strong>${dataset.name}</strong>. Your proposal will be reviewed by the SRU Data Governance Board within 3-5 working days.</p>
+      
+      <div class="form-layout" style="max-width: 100%; padding: 30px; box-shadow: none; border: 1px solid var(--border-color); background-color: var(--bg-card);">
+        <form id="detailAccessRequestForm" novalidate>
+          <div class="form-grid">
+            <!-- Full Name -->
+            <div>
+              <label for="detailFormFullName" class="form-label">Full Name *</label>
+              <input type="text" id="detailFormFullName" class="form-control" placeholder="Dr. Jane Doe" required>
+            </div>
+            
+            <!-- Email -->
+            <div>
+              <label for="detailFormEmail" class="form-label">Institutional Email *</label>
+              <input type="email" id="detailFormEmail" class="form-control" placeholder="j.doe@university.edu" required>
+            </div>
+            
+            <!-- Institution / Department -->
+            <div class="form-group-full">
+              <label for="detailFormInstitution" class="form-label">Institution & Department *</label>
+              <input type="text" id="detailFormInstitution" class="form-control" placeholder="SR University, Department of Computer Science" required>
+            </div>
+            
+            <!-- Research Purpose -->
+            <div class="form-group-full">
+              <label for="detailFormPurpose" class="form-label">Primary Research Domain / Purpose *</label>
+              <input type="text" id="detailFormPurpose" class="form-control" placeholder="e.g. Cognitive Neurology Study, Climate Modeling" required>
+            </div>
+            
+            <!-- Description of Intended Use -->
+            <div class="form-group-full">
+              <label for="detailFormIntendedUse" class="form-label">Detailed Intended Use & Methodology *</label>
+              <textarea id="detailFormIntendedUse" class="form-control" placeholder="Describe how the dataset will be utilized in your research, including specific algorithms, modeling methods, and security/storage measures to be implemented." required></textarea>
+            </div>
+          </div>
+          
+          <!-- Agreements -->
+          <div class="checkbox-group">
+            <input type="checkbox" id="detailFormAgreement" class="checkbox-control" required>
+            <label for="detailFormAgreement" class="checkbox-label">
+              I agree to the <strong>SR University Data Use Agreement (DUA)</strong>. I certify that this dataset will be stored on secure institutional servers, will not be distributed to unauthorized third parties, and will be cited properly in all resulting publications.
+            </label>
+          </div>
+          
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary btn-full" id="detailSubmitRequestBtn">
+            Submit Access Request
+          </button>
+        </form>
+      </div>
+    </div>
+  `;
 
   // Populate detail container markup
   detailContainer.innerHTML = `
@@ -516,6 +523,9 @@ function renderDatasetDetail(id) {
       
       <h3 class="detail-sec-title">Standard Bibliography Citation</h3>
       <div class="citation-box">${dataset.citation}</div>
+
+      <!-- Embedded Access Form Section -->
+      ${formHTML}
     </div>
     
     <div class="detail-sidebar">
@@ -531,6 +541,74 @@ function renderDatasetDetail(id) {
       </div>
     </div>
   `;
+
+  // Form field validation and simulated submission dialog for embedded form
+  const detailForm = document.getElementById("detailAccessRequestForm");
+  if (detailForm) {
+    detailForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const fullName = document.getElementById("detailFormFullName");
+      const email = document.getElementById("detailFormEmail");
+      const institution = document.getElementById("detailFormInstitution");
+      const purpose = document.getElementById("detailFormPurpose");
+      const intendedUse = document.getElementById("detailFormIntendedUse");
+      const agreement = document.getElementById("detailFormAgreement");
+      const submitBtn = document.getElementById("detailSubmitRequestBtn");
+
+      let isValid = true;
+
+      const validateField = (element, condition) => {
+        if (condition) {
+          element.style.borderColor = "var(--border-color)";
+          element.style.backgroundColor = "var(--bg-main)";
+        } else {
+          element.style.borderColor = "var(--danger-color)";
+          element.style.backgroundColor = "#fef2f2";
+          isValid = false;
+        }
+      };
+
+      validateField(fullName, fullName.value.trim().length > 2);
+      validateField(email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()));
+      validateField(institution, institution.value.trim().length > 4);
+      validateField(purpose, purpose.value.trim().length > 4);
+      validateField(intendedUse, intendedUse.value.trim().length > 20);
+      
+      if (!agreement.checked) {
+        agreement.parentElement.style.color = "var(--danger-color)";
+        isValid = false;
+      } else {
+        agreement.parentElement.style.color = "var(--text-light)";
+      }
+
+      if (!isValid) {
+        alert("Please correct the highlighted fields and agree to the terms to proceed.");
+        return;
+      }
+
+      // If form is valid, trigger simulated submission
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Processing Verification...";
+      submitBtn.style.opacity = "0.7";
+
+      setTimeout(() => {
+        // Generate a random ticket number
+        const randomNum = Math.floor(100000 + Math.random() * 900000);
+        document.getElementById("ticketNumber").textContent = `SRU-REQ-${randomNum}`;
+        
+        // Show success modal
+        const modal = document.getElementById("successModal");
+        modal.classList.add("active");
+
+        // Reset form
+        detailForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Access Request";
+        submitBtn.style.opacity = "1";
+      }, 1200);
+    });
+  }
 }
 
 // Simulate instant download for open datasets

@@ -28,3 +28,5 @@ Since this is a client-side Single Page Application built using standard web tec
    git clone https://github.com/Nadirsha-Syed/sru-ds.git
    ```
 2. Open [`index.html`](index.html) directly in any modern web browser, or serve it using a lightweight local web server (e.g., Live Server, python http.server, etc.).
+
+# research-dataset-access-portal
